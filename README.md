@@ -1,1 +1,1 @@
-# glicrdf
+# Glycan-related RDF data
