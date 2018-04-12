@@ -12,4 +12,4 @@
 
 | Dataset      | Graph                                 | Ontology                                             |
 |--------------|---------------------------------------|------------------------------------------------------|
-| GlycoEpitope | http://rdf.glycoinfo.org/glycoepitope | http://www.glycoepitope.jp/epitopes/glycoepitope.owl |
+| [GlycoEpitope](https://integbio.jp/rdf/download/glycoepitope/2015-11-18/all/glycoepitope.tar.gz) | `http://rdf.glycoinfo.org/glycoepitope` | http://www.glycoepitope.jp/epitopes/glycoepitope.owl |
