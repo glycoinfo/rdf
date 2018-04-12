@@ -1,4 +1,4 @@
-# Glycan-related RDF data
+# Glycan-related Resource Description Framework (RDF) data
 
 
 
