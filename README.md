@@ -16,6 +16,8 @@ GLIC endpoint is a SPARQL endpoint for Glycan-related RDF data.
 | [GDGDB](https://acgg.asia/db/diseases/gdgdb) |  | Creative Commons Attribution-ShareAlike 2.1 Japan (CC BY-SA 2.1 JP) | National Institute of Advanced Industrial Science and Technology （AIST） | version 1 | 2016-09-01 |
 | [GGDonto](https://acgg.asia/db/diseases/gdgdb) | [GGDonto](https://integbio.jp/rdf/download/ggdonto/2017-01-25/all/ggdonto.tar.gz) | Creative Commons Attribution-ShareAlike 2.1 Japan (CC BY-SA 2.1 JP) | National Institute of Advanced Industrial Science and Technology （AIST） | version 1 | 2016-09-01 |
 | [PacOnto](https://acgg.asia/db/diseases/pacdb) |  | Creative Commons Attribution-ShareAlike 2.1 Japan (CC BY-SA 2.1 JP) | National Institute of Advanced Industrial Science and Technology （AIST） | version 1 | 2016-06-01 |
+| [GlycoProtDB](https://acgg.asia/db/gpdb/) |  | Creative Commons Attribution-ShareAlike 2.1 Japan (CC BY-SA 2.1 JP) | National Institute of Advanced Industrial Science and Technology （AIST） | version 1 | 2016-12-06 |
+| [LfDB](https://acgg.asia/db/lfdb/) |  | Creative Commons Attribution-ShareAlike 2.1 Japan (CC BY-SA 2.1 JP) | National Institute of Advanced Industrial Science and Technology （AIST） | version 1 | 2018-04-06 |
 
 
 # Graph & Ontology
@@ -27,3 +29,5 @@ GLIC endpoint is a SPARQL endpoint for Glycan-related RDF data.
 | GDGDB | `http://jcggdb.jp/rdf/diseases/gdgdb` | https://jcggdb.jp/rdf/diseases/gdgdb-schema |
 | [GGDonto](https://integbio.jp/rdf/download/ggdonto/2017-01-25/all/ggdonto.tar.gz) | `http://jcggdb.jp/rdf/diseases/ggdonto` | https://jcggdb.jp/rdf/diseases/ggdonto-schema |
 | PacOnto | `http://jcggdb.jp/rdf/diseases/paconto` | https://jcggdb.jp/rdf/diseases/paconto-schema |
+| GlycoProtDB | `http://purl.jp/bio/12/gpdb/3.0` |  |
+| LfDB | `http://purl.jp/bio/12/lfdb` |  |
