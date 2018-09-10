@@ -25,9 +25,9 @@ GLIC endpoint is a SPARQL endpoint for Glycan-related RDF data.
 | Dataset      | Graph                                 | Ontology                                             |
 |--------------|---------------------------------------|------------------------------------------------------|
 | [GlycoEpitope](https://integbio.jp/rdf/download/glycoepitope/2015-11-18/all/glycoepitope.tar.gz) | `http://rdf.glycoinfo.org/glycoepitope` | http://www.glycoepitope.jp/epitopes/glycoepitope.owl |
-| GGDB | `http://purl.jp/bio/12/ggdb/` |  |
-| GDGDB | `http://jcggdb.jp/rdf/diseases/gdgdb` | https://jcggdb.jp/rdf/diseases/gdgdb-schema |
-| [GGDonto](https://integbio.jp/rdf/download/ggdonto/2017-01-25/all/ggdonto.tar.gz) | `http://jcggdb.jp/rdf/diseases/ggdonto` | https://jcggdb.jp/rdf/diseases/ggdonto-schema |
-| PacOnto | `http://jcggdb.jp/rdf/diseases/paconto` | https://jcggdb.jp/rdf/diseases/paconto-schema |
-| GlycoProtDB | `http://purl.jp/bio/12/gpdb/3.0` |  |
-| LfDB | `http://purl.jp/bio/12/lfdb` |  |
+| GGDB | `http://rdf.glycoinfo.org/ggdb` |  |
+| GDGDB | `http://rdf.glycoinfo.org/gdgdb` | https://jcggdb.jp/rdf/diseases/gdgdb-schema |
+| [GGDonto](https://integbio.jp/rdf/download/ggdonto/2017-01-25/all/ggdonto.tar.gz) | `http://rdf.glycoinfo.org/ggdonto` | https://jcggdb.jp/rdf/diseases/ggdonto-schema |
+| PacOnto | `http://rdf.glycoinfo.org/paconto` | https://jcggdb.jp/rdf/diseases/paconto-schema |
+| GlycoProtDB | `http://rdf.glycoinfo.org/gpdb` |  |
+| LfDB | `http://rdf.glycoinfo.org/lfdb` |  |
