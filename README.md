@@ -2,7 +2,7 @@
 
 
 
-# GLIC endpoint
+# GLIC SPARQL endpoint
 
 GLIC endpoint is a SPARQL endpoint for Glycan-related RDF data.
 * GLIC endpoint URL: http://sparql.glycoinfo.org/sparql
