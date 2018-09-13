@@ -1,33 +1,34 @@
-# Glycan-related Resource Description Framework (RDF) data
+# SPARQL Query Samples
 
 
 
-# GLIC SPARQL endpoint
+# GlycoEpitope
 
-GLIC endpoint is a SPARQL endpoint for Glycan-related RDF data.
-* GLIC endpoint URL: http://sparql.glycoinfo.org/sparql
+```
+##########################
+#
+#List of epitope id and name
+#
+##########################
 
-# License
+DEFINE sql:select-option "order"
+PREFIX dcterms: <http://purl.org/dc/terms/>
+PREFIX bibo: <http://purl.org/ontology/bibo/>
+PREFIX glycan: <http://purl.jp/bio/12/glyco/glycan#> 
+PREFIX glycodb: <http://purl.jp/bio/12/database/>
+PREFIX glytoucan: <http://www.glytoucan.org/glyco/owl/glytoucan#>
+PREFIX glycoepitope: <http://www.glycoepitope.jp/epitopes/glycoepitope.owl#>
+PREFIX glycoprot: <http://www.glycoprot.jp/>
+PREFIX uniprot: <http://www.uniprot.org/core/>
 
-| Database     | Dataset      | License                                                             | Data provider          | Version   | Issued     |
-|--------------|--------------|---------------------------------------------------------------------|------------------------|-----------|------------|
-| [GlycoEpitope](http://glycoepitope.jp) | [GlycoEpitope](https://integbio.jp/rdf/download/glycoepitope/2015-11-18/all/glycoepitope.tar.gz) | Creative Commons Attribution-ShareAlike 2.1 Japan (CC BY-SA 2.1 JP) | Ritsumeikan University | version 3 | 2015-11-18 |
-| [GGDB](http://acgg.asia/db/ggdb) |  | Creative Commons Attribution-ShareAlike 2.1 Japan (CC BY-SA 2.1 JP) | National Institute of Advanced Industrial Science and Technology （AIST） | version 1 | 2018-01-26 |
-| [GDGDB](https://acgg.asia/db/diseases/gdgdb) |  | Creative Commons Attribution-ShareAlike 2.1 Japan (CC BY-SA 2.1 JP) | National Institute of Advanced Industrial Science and Technology （AIST） | version 1 | 2016-09-01 |
-| [GGDonto](https://acgg.asia/db/diseases/gdgdb) | [GGDonto](https://integbio.jp/rdf/download/ggdonto/2017-01-25/all/ggdonto.tar.gz) | Creative Commons Attribution-ShareAlike 2.1 Japan (CC BY-SA 2.1 JP) | National Institute of Advanced Industrial Science and Technology （AIST） | version 1 | 2016-09-01 |
-| [PacOnto](https://acgg.asia/db/diseases/pacdb) |  | Creative Commons Attribution-ShareAlike 2.1 Japan (CC BY-SA 2.1 JP) | National Institute of Advanced Industrial Science and Technology （AIST） | version 1 | 2016-06-01 |
-| [GlycoProtDB](https://acgg.asia/db/gpdb/) |  | Creative Commons Attribution-ShareAlike 2.1 Japan (CC BY-SA 2.1 JP) | National Institute of Advanced Industrial Science and Technology （AIST） | version 1 | 2016-12-06 |
-| [LfDB](https://acgg.asia/db/lfdb/) |  | Creative Commons Attribution-ShareAlike 2.1 Japan (CC BY-SA 2.1 JP) | National Institute of Advanced Industrial Science and Technology （AIST） | version 1 | 2018-04-06 |
-
-
-# Graph & Ontology
-
-| Dataset      | Graph                                 | Ontology                                             |
-|--------------|---------------------------------------|------------------------------------------------------|
-| [GlycoEpitope](https://integbio.jp/rdf/download/glycoepitope/2015-11-18/all/glycoepitope.tar.gz) | `http://rdf.glycoinfo.org/glycoepitope` | http://www.glycoepitope.jp/epitopes/glycoepitope.owl |
-| GGDB | `http://rdf.glycoinfo.org/ggdb` |  |
-| GDGDB | `http://rdf.glycoinfo.org/gdgdb` | https://jcggdb.jp/rdf/diseases/gdgdb-schema |
-| [GGDonto](https://integbio.jp/rdf/download/ggdonto/2017-01-25/all/ggdonto.tar.gz) | `http://rdf.glycoinfo.org/ggdonto` | https://jcggdb.jp/rdf/diseases/ggdonto-schema |
-| PacOnto | `http://rdf.glycoinfo.org/paconto` | https://jcggdb.jp/rdf/diseases/paconto-schema |
-| GlycoProtDB | `http://rdf.glycoinfo.org/gpdb` |  |
-| LfDB | `http://rdf.glycoinfo.org/lfdb` |  |
+# epiltope id & epitope name
+SELECT distinct ?epitope_id ?epitope_name 
+FROM <http://rdf.glycoinfo.org/glycoepitope>
+WHERE{
+        # epitope id
+?epitope  a glycan:Glycan_epitope .
+        ?epitope dcterms:identifier ?epitope_id .
+        # epitope name
+        ?epitope rdfs:label ?epitope_name .
+}
+```
