@@ -18,6 +18,7 @@ GLIC endpoint is a SPARQL endpoint for Glycan-related RDF data.
 | [PacOnto](https://acgg.asia/db/diseases/pacdb) |  | Creative Commons Attribution-ShareAlike 2.1 Japan (CC BY-SA 2.1 JP) | National Institute of Advanced Industrial Science and Technology （AIST） | version 1 | 2016-06-01 |
 | [GlycoProtDB](https://acgg.asia/db/gpdb/) |  | Creative Commons Attribution-ShareAlike 2.1 Japan (CC BY-SA 2.1 JP) | National Institute of Advanced Industrial Science and Technology （AIST） | version 1 | 2016-12-06 |
 | [LfDB](https://acgg.asia/db/lfdb/) |  | Creative Commons Attribution-ShareAlike 2.1 Japan (CC BY-SA 2.1 JP) | National Institute of Advanced Industrial Science and Technology （AIST） | version 1 | 2018-04-06 |
+| GlycoProtDB2GlyTouCan |  | Creative Commons Attribution-ShareAlike 2.1 Japan (CC BY-SA 2.1 JP) | National Institute of Advanced Industrial Science and Technology （AIST) | version 1 | 2018-09-28 |
 
 
 # Graph & Ontology
@@ -31,3 +32,4 @@ GLIC endpoint is a SPARQL endpoint for Glycan-related RDF data.
 | PacOnto | `http://rdf.glycoinfo.org/paconto` | https://jcggdb.jp/rdf/diseases/paconto-schema |
 | GlycoProtDB | `http://rdf.glycoinfo.org/gpdb` |  |
 | LfDB | `http://rdf.glycoinfo.org/lfdb` |  |
+| GlycoProtDB2GlyTouCan | `http://rdf.glycoinfo.org/gpdb2gtc` |  |
