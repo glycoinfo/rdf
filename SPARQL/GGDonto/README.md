@@ -4,7 +4,7 @@
 prefix ggdon: <http://jcggdb.jp/rdf/diseases/ggdonto-schema#>
 
 select distinct ?preferred_name ?synonym
-from <http://jcggdb.jp/rdf/diseases/ggdonto>
+from <http://rdf.glycoinfo.org/ggdonto>
 where {
  ?disease_uri a ggdon:DiseaseDescriptionGGDonto .
  ?disease_uri ggdon:diseaseType ggdon:CDG .
@@ -21,7 +21,7 @@ order by ?preferred_name ?synonym
 prefix ggdon: <http://jcggdb.jp/rdf/diseases/ggdonto-schema#>
 
 select distinct ?omim_name
-from <http://jcggdb.jp/rdf/diseases/ggdonto>
+from <http://rdf.glycoinfo.org/ggdonto>
 where {
  ?disease_uri a ggdon:DiseaseDescriptionGGDonto .
  ?disease_uri ggdon:diseaseType ggdon:LSD.
@@ -34,7 +34,7 @@ prefix ggdon: <http://jcggdb.jp/rdf/diseases/ggdonto-schema#>
 prefix gmncbi: <http://jcggdb.jp/rdf/diseases/gmncbi-schema#>
 
 select distinct ?text_p 
-from <http://jcggdb.jp/rdf/diseases/ggdonto>
+from <http://rdf.glycoinfo.org/ggdonto>
 where {
  ?disease_uri a ggdon:DiseaseDescriptionGGDonto .
  ?disease_uri ggdon:umlsCUI "C2931008".
@@ -47,7 +47,7 @@ prefix skos: <http://www.w3.org/2004/02/skos/core#>
 prefix ggdon: <http://jcggdb.jp/rdf/diseases/ggdonto-schema#>
 
 select distinct ?reference
-from <http://jcggdb.jp/rdf/diseases/ggdonto>
+from <http://rdf.glycoinfo.org/ggdonto>
 where {
  ?disease_uri a ggdon:DiseaseDescriptionGGDonto.
  {?disease_uri skos:prefLabel  "CDG-IIa"@en.}
