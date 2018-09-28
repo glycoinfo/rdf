@@ -7,7 +7,7 @@ prefix uniprot: <http://purl.uniprot.org/core/>
 prefix ggdon: <http://jcggdb.jp/rdf/diseases/ggdonto-schema#>
 
 select distinct ?species_name ?strain_name
-from <http://jcggdb.jp/rdf/diseases/paconto>
+from <http://rdf.glycoinfo.org/paconto>
 where {
  ?species_uri ggdon:conceptType pacon:PathogenicMicroorganisms.
  ?species_uri uniprot:scientificName ?species_name.
@@ -21,7 +21,7 @@ prefix uniprot: <http://purl.uniprot.org/core/>
 prefix ggdon: <http://jcggdb.jp/rdf/diseases/ggdonto-schema#>
 
 select distinct ?pathogen_name
-from <http://jcggdb.jp/rdf/diseases/paconto>
+from <http://rdf.glycoinfo.org/paconto>
 where {
  ?pathogen_uri ggdon:conceptType pacon:PathogenAdherenceMolecules.
  ?pathogen_uri uniprot:scientificName ?scientific_name.
@@ -36,7 +36,7 @@ prefix uniprot: <http://purl.uniprot.org/core/>
 prefix ggdon: <http://jcggdb.jp/rdf/diseases/ggdonto-schema#>
 
 select distinct ?glycan_name ?interaction_type
-from <http://jcggdb.jp/rdf/diseases/paconto>
+from <http://rdf.glycoinfo.org/paconto>
 where {
  ?pathogen_uri ggdon:conceptType pacon:PathogenAdherenceMolecules.
  ?pathogen_uri uniprot:scientificName ?scientific_name.
@@ -63,7 +63,7 @@ prefix gdgdb: <http://jcggdb.jp/rdf/diseases/gdgdb-schema#>
 prefix bibo: <http://purl.org/ontology/bibo/>
 
 select distinct ?pmid
-from <http://jcggdb.jp/rdf/diseases/paconto>
+from <http://rdf.glycoinfo.org/paconto>
 where {
  ?disease_uri ggdon:conceptType pacon:DiseasesNameAndClass.
  ?disease_uri pacon:diseaseClass ?disease_class .
