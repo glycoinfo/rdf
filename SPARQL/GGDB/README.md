@@ -1,7 +1,7 @@
 # SPARQL Query 
 
 ~~~
-1)List of GeneSymbol and GGDB-ID
+1)List of GeneSymbol and GGDB-ID and more.
 
 prefix ggdb: <http://purl.jp/bio/12/ggdb/2015/6/owl#>
 prefix dcterms: <http://purl.org/dc/terms/>
