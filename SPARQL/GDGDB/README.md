@@ -4,7 +4,7 @@
 prefix gdgdb: <http://jcggdb.jp/rdf/diseases/gdgdb-schema#>
 
 select distinct ?disease_name
-from <http://jcggdb.jp/rdf/diseases/gdgdb>
+from <http://rdf.glycoinfo.org/gdgdb>
 where {
  ?disease_uri a gdgdb:DiseaseDescriptionGDGDB.
  ?disease_uri gdgdb:diseaseName ?disease_name.
@@ -14,7 +14,7 @@ where {
 prefix gdgdb: <http://jcggdb.jp/rdf/diseases/gdgdb-schema#>
 
 select distinct ?gene_symbol ?gene_name
-from <http://jcggdb.jp/rdf/diseases/gdgdb>
+from <http://rdf.glycoinfo.org/gdgdb>
 where {
  ?gene_uri a gdgdb:GeneDescriptionGDGDB.
  ?gene_uri gdgdb:geneSymbol ?gene_symbol.
@@ -26,7 +26,7 @@ order by ?gene_symbol
 prefix gdgdb: <http://jcggdb.jp/rdf/diseases/gdgdb-schema#>
 
 select distinct ?pathogenesis
-from <http://jcggdb.jp/rdf/diseases/gdgdb>
+from <http://rdf.glycoinfo.org/gdgdb>
 where {
  ?disease_uri a gdgdb:DiseaseDescriptionGDGDB.
  ?disease_uri gdgdb:pathogenesis ?pathogenesis.
@@ -38,7 +38,7 @@ where {
 prefix gdgdb: <http://jcggdb.jp/rdf/diseases/gdgdb-schema#>
 
 select distinct ?disease_name
-from <http://jcggdb.jp/rdf/diseases/gdgdb>
+from <http://rdf.glycoinfo.org/gdgdb>
 where {
  ?document_uri a gdgdb:DocumentGDGDB.
  ?gene_uri a gdgdb:GeneDescriptionGDGDB.
