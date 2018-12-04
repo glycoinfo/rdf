@@ -1,0 +1,80 @@
+
+
+# endpoint: https://sparql.glycoinfo.org/sparql
+
+PREFIX up_core: <http://purl.uniprot.org/core/>
+PREFIX evs:   <http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#>
+PREFIX edam:  <http://edamontology.org/>
+PREFIX xsd:   <http://www.w3.org/2001/XMLSchema#>
+PREFIX skos:  <http://www.w3.org/2004/02/skos/core#>
+PREFIX rdfs:  <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX ggdb:  <http://purl.jp/bio/12/ggdb/2015/6/owl#>
+PREFIX bao:   <http://www.bioassayontology.org/bao#>
+PREFIX glycan: <http://purl.jp/bio/12/glyco/glycan#>
+PREFIX rdf:   <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX omim:  <http://purl.bioontology.org/ontology/OMIM/>
+PREFIX sio:   <http://semanticscience.org/resource/>
+PREFIX dcterms: <http://purl.org/dc/terms/>
+PREFIX bibo:  <http://purl.org/ontology/bibo/>
+PREFIX obo:   <http://purl.obolibrary.org/obo/>
+PREFIX mesh:  <http://purl.bioontology.org/ontology/MESH/>
+PREFIX foaf:  <http://xmlns.com/foaf/0.1/>
+PREFIX dc:    <http://purl.org/dc/elements/1.1/>
+
+SELECT DISTINCT ?ggdb_symbol ?ggdb_id
+(GROUP_CONCAT(DISTINCT ?family ; separator = ",") AS ?familiess)
+(GROUP_CONCAT(DISTINCT ?pc_label ; separator = ",") AS ?pc_labels)
+(GROUP_CONCAT(DISTINCT ?k_label ; separator = ",") AS ?k_labels)
+(GROUP_CONCAT(DISTINCT ?designation ; separator = ",") AS ?designations)
+(GROUP_CONCAT(DISTINCT ?donor_label ; separator = ",") AS ?donor_labels)
+(GROUP_CONCAT(DISTINCT ?exp_label ; separator = ",") AS ?exp_labels)
+?source_label
+FROM <http://rdf.glycoinfo.org/ggdb>
+WHERE{
+  ?gg_uri a ggdb:Glycogene .
+  ?gg_uri ggdb:has_gene ?gene.
+
+  # GGDB symbol
+  ?gg_uri ggdb:has_gene_symbol ?ggdb_symbol .
+
+  # GGDB ID
+  ?gg_uri dcterms:identifier ?ggdb_id .
+
+  # Family (gourp)
+  OPTIONAL {
+    ?gg_uri ggdb:in_family ?family_uri .
+    ?family_uri rdfs:label ?family .
+  }
+
+  # Pathway Class (gourp)
+  ?gg_uri ggdb:in_pathway_class ?p_class.
+  ?p_class rdfs:label ?pc_label.
+
+  # Keyword (gourp)
+  ?gene a up_core:Gene .
+  ?gene ggdb:has_keyword ?keyword .
+  ?keyword rdfs:label ?k_label .
+  FILTER(LANG(?k_label)="en")
+
+  # Designation (gourp)
+  OPTIONAL {
+    ?gg_uri dcterms:description ?designation .
+  }
+
+  # Donor
+  ?gg_uri ggdb:has_acceptor_substrates ?ref.
+  ?ref ggdb:has_reaction ?subs_trans.
+  ?subs_trans ggdb:has_donor ?donor.
+  ?donor a ggdb:Donor.
+  ?donor rdfs:label ?donor_label.
+
+  # Expression (group)
+  ?gg_uri ggdb:has_expression ?exp.
+  ?exp rdfs:label ?exp_label.
+
+  # Taxonomy
+  ?gg_uri ggdb:has_gene ?gene.
+  ?gene glycan:is_from_source ?source.
+  ?source rdfs:label ?source_label.
+
+}

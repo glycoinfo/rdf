@@ -1,0 +1,23 @@
+PREFIX ggdont: <http://jcggdb.jp/rdf/diseases/ggdonto-schema#>
+PREFIX gdgdb: <http://jcggdb.jp/rdf/diseases/gdgdb-schema#>
+PREFIX gmncbi: <http://jcggdb.jp/rdf/diseases/gmncbi-schema#>
+
+SELECT DISTINCT
+  (count(distinct ?disease_name))
+FROM <http://rdf.glycoinfo.org/gdgdb>
+FROM <http://rdf.glycoinfo.org/ggdonto>
+WHERE {
+  ?dd_uri a ggdont:DiseaseDescriptionGGDonto.
+  ?dd_uri ggdont:conceptUI ?concept_ui.
+  ?dd_uri skos:prefLabel ?disease_name.
+  ?dd_uri ggdont:omimGene ?gene_symbol.
+  #OPTIONAL{
+  #?dd_uri skos:altLabel ?alt_disease_name.
+  #}
+  #OPTIONAL{
+  #?dd_uri skos:related ?uniprot.
+  #FILTER REGEX(STR(?uniprot), "http://purl.uniprot.org/uniprot/")
+  #BIND(STRAFTER(STR(?uniprot), "http://purl.uniprot.org/uniprot/") AS ?uniprot_id)
+  #}
+}
+#ORDER BY  ?disease_name

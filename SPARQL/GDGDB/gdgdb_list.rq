@@ -1,0 +1,42 @@
+PREFIX gdgdb: <http://jcggdb.jp/rdf/diseases/gdgdb-schema#>
+PREFIX ggdont: <http://jcggdb.jp/rdf/diseases/ggdonto-schema#>
+PREFIX gmncbi: <http://jcggdb.jp/rdf/diseases/gmncbi-schema#>
+
+SELECT DISTINCT
+  ?gene_symbol
+  (GROUP_CONCAT(DISTINCT ?disease_name ; separator = ", ") AS ?disease_names)
+  ?concept_ui
+  ?gene_name
+  (GROUP_CONCAT(DISTINCT ?alias_gene_symbol ; separator = ", ") AS ?alias_gene_symbols)
+  ?uniprot_id
+FROM <http://rdf.glycoinfo.org/gdgdb>
+FROM <http://rdf.glycoinfo.org/ggdonto>
+WHERE {
+  ?gdgdb_uri a gdgdb:DocumentGDGDB.
+  ?gdgdb_uri gdgdb:diseaseDescription ?disease_uri.
+  ?gdgdb_uri gdgdb:geneDescription ?gene_uri.
+
+  # Disease names, Link to GDGDB entry
+  ?disease_uri a gdgdb:DiseaseDescriptionGDGDB.
+  ?disease_uri gdgdb:diseaseName ?disease_name.
+  FILTER (LANG(?disease_name) = 'en')
+
+  ?gene_uri a gdgdb:GeneDescriptionGDGDB.
+  # Gene symbol
+  ?gene_uri gdgdb:geneSymbol ?gene_symbol.
+  # Gene names
+  ?gene_uri gdgdb:geneName ?gene_name.
+  # Alias gene symbol
+  ?gene_uri gdgdb:aliasGeneSymbol ?alias_gene_symbol.
+  # Alias gene names
+  ?gene_uri gdgdb:aliasGeneName ?alias_gene_name.
+  # Concept UI, UniProt
+  OPTIONAL{
+  ?dd_uri skos:closeMatch ?gdgdb_uri.
+  ?dd_uri a ggdont:DiseaseDescriptionGGDonto.
+  ?dd_uri ggdont:conceptUI ?concept_ui.
+  ?dd_uri skos:related ?uniprot.
+  FILTER REGEX(STR(?uniprot), "http://purl.uniprot.org/uniprot/")
+  BIND(STRAFTER(STR(?uniprot), "http://purl.uniprot.org/uniprot/") AS ?uniprot_id)
+  }
+} ORDER BY ?gene_symbol

@@ -1,0 +1,56 @@
+PREFIX up_core: <http://purl.uniprot.org/core/>
+PREFIX edam:    <http://edamontology.org/>
+PREFIX rdf:   <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX sio:   <http://semanticscience.org/resource/>
+PREFIX skos:  <http://www.w3.org/2004/02/skos/core#>
+PREFIX dcterms: <http://purl.org/dc/terms/>
+PREFIX lfdb:  <http://purl.jp/bio/12/lfdb/2014/7/owl#>
+PREFIX rdfs:  <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX bibo:  <http://purl.org/ontology/bibo/>
+PREFIX obo:   <http://purl.obolibrary.org/obo/>
+PREFIX glycan: <http://purl.jp/bio/12/glyco/glycan#>
+PREFIX dc:    <http://purl.org/dc/elements/1.1/>
+PREFIX foaf:    <http://xmlns.com/foaf/0.1/>
+
+SELECT DISTINCT
+	?lfdb_id
+	(GROUP_CONCAT(DISTINCT ?lectin_name ; separator = ", ") AS ?lectin_names)
+	(GROUP_CONCAT(DISTINCT ?pfam_name ; separator = ", ") AS ?pfam_names)
+	(GROUP_CONCAT(DISTINCT ?specificity ; separator = ", ") AS ?specificities)
+	(GROUP_CONCAT(DISTINCT ?organism ; separator = ", ") AS ?organisms)
+	?has_fac_analysis
+FROM <http://rdf.glycoinfo.org/lfdb>
+WHERE{
+    ?lectin a glycan:Lectin.
+
+    # LfDB ID
+    ?lectin dcterms:identifier ?lfdb_id.
+
+    # Lectin name
+    ?lectin lfdb:has_lectin_name ?lectin_name.
+
+    # Pfam
+    OPTIONAL {
+      ?lectin lfdb:in_pfam_family ?pfam.
+      #?pfam dcterms:identifier ?pfam_id.
+      ?pfam rdfs:label ?pfam_name.
+    }
+
+    # Specificity
+    OPTIONAL {
+  		?lectin lfdb:has_monosaccharide_specificity ?mono.
+  		?mono rdfs:label ?specificity.
+    }
+
+    # Organism
+    OPTIONAL {
+  		?lectin up_core:organism ?taxon.
+  		?taxon up_core:scientificName ?organism.
+    }
+
+    # FAC Analysis
+    OPTIONAL {
+  		?lectin lfdb:has_fac ?fac_uri.
+  		BIND(IF(bound(?fac_uri), "Yes", "No") AS ?has_fac_analysis)
+    }
+} ORDER BY ?lfdb_id

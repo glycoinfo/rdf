@@ -1,0 +1,29 @@
+PREFIX gdgdb: <http://jcggdb.jp/rdf/diseases/gdgdb-schema#>
+PREFIX ggdont: <http://jcggdb.jp/rdf/diseases/ggdonto-schema#>
+PREFIX gmncbi: <http://jcggdb.jp/rdf/diseases/gmncbi-schema#>
+
+SELECT DISTINCT
+  (count(distinct ?dms_id))
+FROM <http://rdf.glycoinfo.org/gdgdb>
+FROM <http://rdf.glycoinfo.org/ggdonto>
+WHERE {
+  ?gdgdb_uri a gdgdb:DocumentGDGDB.
+  ?gdgdb_uri gdgdb:dmsid ?dms_id.
+  ?gdgdb_uri gdgdb:diseaseDescription ?disease_uri.
+  ?gdgdb_uri gdgdb:geneDescription ?gene_uri.
+
+  # Disease names, Link to GDGDB entry
+  ?disease_uri a gdgdb:DiseaseDescriptionGDGDB.
+  ?disease_uri gdgdb:diseaseName ?disease_name.
+  FILTER (LANG(?disease_name) = 'en')
+
+  ?gene_uri a gdgdb:GeneDescriptionGDGDB.
+  # Gene symbol
+  ?gene_uri gdgdb:geneSymbol ?gene_symbol.
+  # Gene names
+  #?gene_uri gdgdb:geneName ?gene_name.
+  # Alias gene symbol
+  #?gene_uri gdgdb:aliasGeneSymbol ?alias_gene_symbol.
+  # Alias gene names
+  #?gene_uri gdgdb:aliasGeneName ?alias_gene_name.
+} ORDER BY ?gene_symbol
