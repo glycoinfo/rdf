@@ -1,0 +1,105 @@
+@base <http://www.cazy.org/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix up: <http://www.purl.uniprot.org/core/> .
+@prefix cazy: <http://www.cazy.org/owl/v1> .
+
+# Genome
+<http://www.cazy.org/genome/375>
+ a up:Taxon, cazy:Genome  ;
+ up:name "Homo Sapiens" ;
+ cazy:hasTaxonomyID 9606 ;
+ rdfs:seeAlso <https://www.ncbi.nlm.nih.gov/taxonomy/9606>  ,
+              <http://purl.uniprot.org/taxonomy/9606> ,
+              <http://identifiers.org/taxonomy/9606> .
+ 
+#Protein
+<protein/CAA30801>
+  a up:Protein, cazy:Protein ;
+  rdfs:comment  "lactase-phlorizin hydrolase (Lct)"  ;
+  up:organism <genome/385> ;
+  dcterms:identifier "CAA30801" ;
+  skos:altLabel "AAA59504"  ;
+  skos:altLabel "P09848"  ;
+  skos:altLabel "3WRG"  ;
+  up:annotation <function/1>,
+                <function/2>;
+ rdfs:seeAlso <https://www.ncbi.nlm.nih.gov/protein/CAA30801> ,
+              <http://identifiers.org/ncbiprotein/CAA30801> ,
+              <http://purl.uniprot.org/embl-cds/CAA30801> ,
+              <https://www.ncbi.nlm.nih.gov/protein/AAA59504> ,
+              <http://identifiers.org/ncbiprotein/AAA59504> ,
+              <http://purl.uniprot.org/embl-cds/AAA59504> ,
+              <https://www.ncbi.nlm.nih.gov/protein/P09848> 
+              <http://purl.uniprot.org/uniprot/P09848>  ,
+              <http://identifiers.org/uniprot/P09848>  .
+# Alternatively one for each annotation: and each annotation refer to an entry instead of an organism and this is the entry that is a protein and refer to an organism and have the module
+
+<protein/AAA35880>
+  a up:Protein, cazy:Protein ;
+  rdfs:comment  " lactase-phlorizin hydrolase (Lct)"  ;
+ up:organism <genome/385> ;
+ dcterms:identifier  AAA35880 ;
+ skos:altLabel B2R6A7  ;
+ skos:altLabel 1OGS  ;
+ rdfs:seeAlso <https://www.ncbi.nlm.nih.gov/protein/AAA35880> ,
+              <http://identifiers.org/ncbiprotein/AAA35880> ,
+              <http://purl.uniprot.org/embl-cds/AAA35880> ,
+              <https://www.ncbi.nlm.nih.gov/protein/B2R6A7> 
+              <http://purl.uniprot.org/uniprot/B2R6A7>  ,
+              <http://identifiers.org/uniprot/B2R6A7>  ,
+              <https://www.ncbi.nlm.nih.gov/protein/1OGS_A> ,
+              <http://rdf.wwpdb.org/pdb/1OGS/struct_asym/A> ,
+              <http://purl.uniprot.org/pdbsum/1OGS>  .
+
+#Domain family
+<family/GH1>
+  a  up:Resource, cazy:Family ;
+  cazy:hasNote "Created after Fujita et al. (2011) J. Biol. Chem. (PMID - 21149454) who have shown the b-L-arabinobiosidase activity of the Bifidobacterium longum enzyme." ;
+  cazy:hasMechanism  "Retaining"  ;
+  cazy:hasFold "(a/a)6"  ; # is the fold a clan attribute and so should we create an entity for "clans?"
+  cazy:hasCatalyticAcideBase "Glu (experimental)" ;"
+  cazy:hasCatalyticNucleophil "Glu (experimental); absent in plant myrosinases" ;
+  up:signatureSequenceMatch <protein/CAA30801#module1>  ,
+                            <protein/CAA30801#module2>  ;
+  cazy:hasClan <clan/GH-P>  ;
+  cazy:hasReportedFunction <function/1>,
+                           <function/2> .
+
+<family/GH30>
+  a  up:Resource, cazy:Family ;
+  cazy:hasMechanism  "Retaining"  ;
+  family:hasNote "Following St John et al. [FEBS Letters 584:4435-4441 (2010); PMID: 20932833] several GH5 subfamilies have been reassigned to GH30. The subfamilies in GH30 are now indicated."  ;
+  cazy:hasFold "(b/a)8"  ;
+  cazy:hasCatalyticAcideBase "Glu (experimental)" ;
+  cazy:hasCatalyticNucleophil "Glu (inferred)" ;
+  cazy:hasClan <clan/GH-A>  .
+  
+<family/GH30_1>
+  a up:Resource, cazy:Subfamily ;
+  cazy:hasFamily <family/GH30>  ;
+  up:signatureSequenceMatch <protein/AID60282#module3>  .
+
+
+<function/1>
+  a  up:Catalytic_Activity_Annotation, cazy:Function  ;
+  cazy:characterizedModule <protein/CAA30801#module1>  ;
+  rdfs:comment "b-glycosylceramidase"  ;
+  up:catalyticActivity <http://www.cazy.org/ec/3.2.1.62> .
+  
+<ec/3.2.1.62>
+  a up:Catalytic_Activity ;
+  up:enzymeClass enzyme:3.2.1.62  .
+
+<function/2>
+  a  up:Catalytic_Activity_Annotation  , cazy:Function  ;
+  cazy:characterizedModule <protein/CAA30801#module2>  ;
+  rdfs:comment "lactase"  ;
+  up:catalyticActivity <http://www.cazy.org/ec/3.2.1.108> .
+
+<ec/3.2.1.108>
+  a up:Catalytic_Activity ;
+  up:enzymeClass enzyme:3.2.1.108  .
+
