@@ -33,7 +33,7 @@
               <https://www.ncbi.nlm.nih.gov/protein/AAA59504> ,
               <http://identifiers.org/ncbiprotein/AAA59504> ,
               <http://purl.uniprot.org/embl-cds/AAA59504> ,
-              <https://www.ncbi.nlm.nih.gov/protein/P09848> 
+              <https://www.ncbi.nlm.nih.gov/protein/P09848> ,
               <http://purl.uniprot.org/uniprot/P09848>  ,
               <http://identifiers.org/uniprot/P09848>  .
 # Alternatively one for each annotation: and each annotation refer to an entry instead of an organism and this is the entry that is a protein and refer to an organism and have the module
@@ -42,9 +42,9 @@
   a up:Protein, cazy:Protein ;
   rdfs:comment  " lactase-phlorizin hydrolase (Lct)"  ;
  up:organism <genome/385> ;
- dcterms:identifier  "AAA35880" ;
- skos:altLabel "B2R6A7"  ;
- skos:altLabel "1OGS"  ;
+ dcterms:identifier  AAA35880 ;
+ skos:altLabel B2R6A7  ;
+ skos:altLabel 1OGS  ;
  rdfs:seeAlso <https://www.ncbi.nlm.nih.gov/protein/AAA35880> ,
               <http://identifiers.org/ncbiprotein/AAA35880> ,
               <http://purl.uniprot.org/embl-cds/AAA35880> ,
@@ -66,7 +66,7 @@
   up:signatureSequenceMatch <protein/CAA30801#module1>  ,
                             <protein/CAA30801#module2>  ;
   cazy:hasClan <clan/GH-P>  ;
-  cazy:hasReportedFunction <function/1> ,
+  cazy:hasReportedFunction <function/1>,
                            <function/2> .
 
 <family/GH30>
@@ -103,4 +103,3 @@
 <ec/3.2.1.108>
   a up:Catalytic_Activity ;
   up:enzymeClass enzyme:3.2.1.108  .
-
