@@ -72,7 +72,7 @@
 <family/GH30>
   a  up:Resource, cazy:Family ;
   cazy:hasMechanism  "Retaining"  ;
-  family:hasNote "Following St John et al. [FEBS Letters 584:4435-4441 (2010); PMID: 20932833] several GH5 subfamilies have been reassigned to GH30. The subfamilies in GH30 are now indicated."  ;
+  cazy:hasNote "Following St John et al. [FEBS Letters 584:4435-4441 (2010); PMID: 20932833] several GH5 subfamilies have been reassigned to GH30. The subfamilies in GH30 are now indicated."  ;
   cazy:hasFold "(b/a)8"  ;
   cazy:hasCatalyticAcideBase "Glu (experimental)" ;
   cazy:hasCatalyticNucleophil "Glu (inferred)" ;
