@@ -40,15 +40,15 @@
 
 <protein/AAA35880>
   a up:Protein, cazy:Protein ;
-  rdfs:comment  " lactase-phlorizin hydrolase (Lct)"  ;
+  rdfs:comment  "lactase-phlorizin hydrolase (Lct)"  ;
  up:organism <genome/385> ;
- dcterms:identifier  AAA35880 ;
- skos:altLabel B2R6A7  ;
- skos:altLabel 1OGS  ;
+ dcterms:identifier  "AAA35880" ;
+ skos:altLabel "B2R6A7"  ;
+ skos:altLabel "1OGS"  ;
  rdfs:seeAlso <https://www.ncbi.nlm.nih.gov/protein/AAA35880> ,
               <http://identifiers.org/ncbiprotein/AAA35880> ,
               <http://purl.uniprot.org/embl-cds/AAA35880> ,
-              <https://www.ncbi.nlm.nih.gov/protein/B2R6A7> 
+              <https://www.ncbi.nlm.nih.gov/protein/B2R6A7> ,
               <http://purl.uniprot.org/uniprot/B2R6A7>  ,
               <http://identifiers.org/uniprot/B2R6A7>  ,
               <https://www.ncbi.nlm.nih.gov/protein/1OGS_A> ,
