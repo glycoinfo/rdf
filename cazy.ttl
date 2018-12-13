@@ -9,7 +9,7 @@
 @prefix enzyme: <http://purl.uniprot.org/enzyme/> .
 
 # Genome
-<http://www.cazy.org/genome/375>
+<genome/375>
  a up:Taxon, cazy:Genome  ;
  up:name "Homo Sapiens" ;
  cazy:hasTaxonomyID 9606 ;
@@ -21,7 +21,7 @@
 <protein/CAA30801>
   a up:Protein, cazy:Protein ;
   rdfs:comment  "lactase-phlorizin hydrolase (Lct)"  ;
-  up:organism <genome/385> ;
+  up:organism <genome/375> ;
   dcterms:identifier "CAA30801" ;
   skos:altLabel "AAA59504"  ;
   skos:altLabel "P09848"  ;
@@ -42,7 +42,7 @@
 <protein/AAA35880>
   a up:Protein, cazy:Protein ;
   rdfs:comment  "lactase-phlorizin hydrolase (Lct)"  ;
- up:organism <genome/385> ;
+ up:organism <genome/375> ;
  dcterms:identifier  "AAA35880" ;
  skos:altLabel "B2R6A7"  ;
  skos:altLabel "1OGS"  ;
