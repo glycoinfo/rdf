@@ -61,7 +61,7 @@
   cazy:hasNote "Created after Fujita et al. (2011) J. Biol. Chem. (PMID - 21149454) who have shown the b-L-arabinobiosidase activity of the Bifidobacterium longum enzyme." ;
   cazy:hasMechanism  "Retaining"  ;
   cazy:hasFold "(a/a)6"  ; # is the fold a clan attribute and so should we create an entity for "clans?"
-  cazy:hasCatalyticAcideBase "Glu (experimental)" ;"
+  cazy:hasCatalyticAcideBase "Glu (experimental)" ;
   cazy:hasCatalyticNucleophil "Glu (experimental); absent in plant myrosinases" ;
   up:signatureSequenceMatch <protein/CAA30801#module1>  ,
                             <protein/CAA30801#module2>  ;
