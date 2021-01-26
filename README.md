@@ -20,7 +20,7 @@ GLIC endpoint is a SPARQL endpoint for Glycan-related RDF data.
 | [LfDB](https://acgg.asia/db/lfdb/) |  | Creative Commons Attribution-ShareAlike 2.1 Japan (CC BY-SA 2.1 JP) | National Institute of Advanced Industrial Science and Technology （AIST） | version 1 | 2018-04-06 |
 | GlycoProtDB2GlyTouCan |  | Creative Commons Attribution-ShareAlike 2.1 Japan (CC BY-SA 2.1 JP) | National Institute of Advanced Industrial Science and Technology （AIST) | version 2 | 2018-12-04 |
 | [Carbohydrate Structure Database (CSDB)](http://csdb.glycoscience.ru/database/index.html) |  |  | N.D. Zelinsky Institute of Organic Chemistry |  | 2018-10-21 |
-| [CAZy](http://www.cazy.org/) |  |  |  |  |  |
+
 
 # Graph & Ontology
 
@@ -35,4 +35,4 @@ GLIC endpoint is a SPARQL endpoint for Glycan-related RDF data.
 | LfDB | `http://rdf.glycoinfo.org/lfdb` |  |
 | GlycoProtDB2GlyTouCan | `http://rdf.glycoinfo.org/gpdb2gtc` |  |
 | Carbohydrate Structure Database (CSDB) | `http://rdf.glycoinfo.org/csdb` |  |
-| Carbohydrate-Active enZYmes Database (CAZy) | `http://rdf.glycoinfo.org/cazy` |  |
+
